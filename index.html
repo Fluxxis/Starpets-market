@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#ffffff" />
+  <title>Market</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app" id="app">
+    <header class="topbar">
+      <button class="burger" id="burgerBtn" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <a class="brand" href="#" aria-label="Home"><img class="brand-logo" id="brandLogo" src="Logo.svg" alt="Logo" /></a>
+      <div class="top-spacer"></div>
+
+      <div class="drop-wrap game-wrap">
+        <button class="pill game-pill" id="gameBtn" aria-label="Choose game">
+          <img class="game-avatar" id="gameAvatar" src="Games/mm2.svg" alt="Game" />
+          <span class="chevron" data-icon="chevron"></span>
+        </button>
+        <div class="dropdown game-dropdown" id="gameDropdown"></div>
+      </div>
+
+      <div class="drop-wrap lang-wrap">
+        <button class="pill flag-pill" id="langBtn" aria-label="Choose language"><span id="flagNow"></span></button>
+        <div class="dropdown lang-dropdown" id="langDropdown"></div>
+      </div>
+
+      <div class="drop-wrap currency-wrap">
+        <button class="pill currency-pill" id="currencyBtn" aria-label="Choose currency"><span id="currencyNow">€</span></button>
+        <div class="dropdown currency-dropdown" id="currencyDropdown"></div>
+      </div>
+
+      <button class="login" id="loginBtn">Login</button>
+      <button class="registration" id="registrationBtn">Registration <span data-icon="arrow"></span></button>
+      <button class="cart" id="topCart" aria-label="Cart"><span data-icon="cart"></span></button>
+      <button class="checkout" id="checkoutBtn"><small id="checkoutText">For checkout</small><b id="checkoutPrice">0 €</b><span data-icon="chevron"></span></button>
+    </header>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="side-head">
+        <button class="side-close" id="sideClose" aria-label="Close menu"><span data-icon="close"></span></button>
+        <a class="side-brand" href="#"><img src="Logo.svg" alt="Logo" /></a>
+      </div>
+      <nav class="side-list">
+        <button class="side-link active"><span class="side-ico orange" data-icon="cart"></span><span data-i18n="market">Market</span></button>
+        <button class="side-link"><span class="side-ico blue" data-icon="box"></span><span data-i18n="items">Items</span></button>
+        <button class="side-link"><span class="side-ico purple" data-icon="bolt"></span><span data-i18n="sale">Sale</span></button>
+        <button class="side-link"><span class="side-ico pink" data-icon="robux"></span><span>R$</span></button>
+        <button class="side-link"><span class="side-ico sky" data-icon="help"></span><span data-i18n="help">Help</span></button>
+      </nav>
+      <div class="side-socials"><span></span><span></span><span></span><span></span></div>
+      <p class="side-title" data-i18n="buySell">Buy & Sell Game Items</p>
+      <p class="side-copy" data-i18n="sideCopy">Static interface. No payment, no auth form, no real marketplace connection.</p>
+      <p class="side-copy strong">© 2020-2026</p>
+      <div class="side-foot">
+        <button>Terms of Service <span data-icon="arrow"></span></button>
+        <button>Privacy Policy <span data-icon="arrow"></span></button>
+        <button>AML KYC Policy <span data-icon="arrow"></span></button>
+      </div>
+    </aside>
+    <div class="dim" id="dim"></div>
+
+    <main class="content">
+      <section class="hero" id="hero">
+        <button class="hero-arrow left" id="bannerPrev"><span data-icon="prev"></span></button>
+        <button class="hero-arrow right" id="bannerNext"><span data-icon="next"></span></button>
+        <div class="hero-text"><h1 id="heroTitle">ALL ITEMS ARE HERE</h1><p id="heroSub">Play more. Grind less.</p></div>
+        <div class="hero-dots" id="heroDots"></div>
+      </section>
+
+      <section class="categories" id="categories"></section>
+
+      <section class="tools">
+        <button class="filter inert" id="filterBtn" aria-label="Filters"><span class="filter-lines" data-icon="filter"></span><em>0</em></button>
+        <label class="search inert" id="searchBox"><span data-icon="search"></span><input id="searchInput" type="search" placeholder="Quick search" readonly /></label>
+        <button class="search-mobile inert" id="searchMobile" aria-label="Search"><span data-icon="search"></span></button>
+        <button class="sort inert" id="sortBtn"><span class="star" data-icon="star"></span><span id="sortText">Popularity</span><i data-icon="chevron"></i></button>
+      </section>
+
+      <section class="products" id="products"></section>
+    </main>
+
+    <nav class="bottom-nav" id="bottomNav" aria-label="Bottom navigation">
+      <button class="bottom-item active" type="button"><span class="nav-icon orange" data-icon="cart"></span><b data-i18n="market">Market</b></button>
+      <button class="bottom-item" type="button"><span class="nav-icon blue" data-icon="box"></span><b data-i18n="items">Items</b></button>
+      <button class="bottom-item godly" type="button"><span class="godly-icon"><span data-icon="godly"></span></span><b>Free Godly</b></button>
+      <button class="bottom-item" type="button"><span class="nav-icon purple" data-icon="bolt"></span><b data-i18n="sale">Sale</b></button>
+      <button class="bottom-item profile-link" type="button" data-profile-login="1" aria-label="Profile login"><span class="nav-icon green" data-icon="profile"></span><b data-i18n="profile">Profile</b></button>
+    </nav>
+
+    <div class="cookie" id="cookieBox">
+      <div class="cookie-main">
+        <span class="cookie-icon" data-icon="cookie"></span>
+        <div><strong id="cookieTitle">Consent to Site Rules</strong><p id="cookieText">This page is not affiliated with Roblox Corporation.</p></div>
+        <button class="info" aria-label="Info"><span data-icon="info"></span></button>
+      </div>
+      <div class="cookie-actions"><button class="decline" id="declineCookie"><span data-icon="circleClose"></span><span id="declineText">DECLINE</span></button><button class="accept" id="acceptCookie"><span data-icon="circleCheck"></span><span id="acceptText">ACCEPT</span></button></div>
+    </div>
+
+    <div class="modal-layer" id="modalLayer" aria-hidden="true">
+      <div class="item-modal" role="dialog" aria-modal="true">
+        <button class="modal-close" id="modalClose"><span data-icon="close"></span></button>
+        <div class="modal-title"><span class="info-tile" data-icon="info"></span><h2 id="modalName">Item</h2></div>
+        <button class="stats" disabled><span id="statsText">Statistics</span><i data-icon="chart"></i></button>
+        <div class="offers" id="offers"></div>
+        <div class="modal-info"><div><span id="itemsForSaleLabel">Items for sale</span><b id="itemsForSale">413</b></div><div><span id="minPriceLabel">Min. price</span><b id="minPrice" class="price-loader"></b></div></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
